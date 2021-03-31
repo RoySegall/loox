@@ -1,10 +1,10 @@
 const express = require('express');
-const {resolve, join} = require('path');
+import {resolve, join} from 'path';
 const app = express();
 const port = 3000;
 
 app.set('view engine', 'pug');
-app.set('views', resolve( 'src', 'templates'));
+app.set('views', resolve('src', 'templates'));
 
 app.use(express.static(join(__dirname, 'public')));
 

@@ -1,57 +1,25 @@
-* {
-  margin: 0;
-  padding: 0; }
+* { margin: 0; padding: 0; }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  background: #e9f2fb; }
-  body .wrapper {
-    margin: 0 auto;
-    padding: 1em;
-    min-height: 90vh;
-    max-width: 1200px;
-    min-width: 90vw;
-    display: flex;
-    flex-direction: row; }
-    body .wrapper main.content-wrapper {
-      display: flex;
-      min-width: 75vw;
-      margin-right: 1em;
-      background: white;
-      border: solid 1px #c0deee;
-      padding: 1em; }
-      body .wrapper main.content-wrapper .info {
-        margin-left: 1em; }
-        body .wrapper main.content-wrapper .info h1 {
-          padding-bottom: .5em; }
-    body .wrapper aside {
-      width: 19vw;
-      background: white;
-      border: solid 1px #c0deee;
-      padding: 1em; }
-      body .wrapper aside ul li {
-        list-style-type: none;
-        display: flex;
-        flex-direction: row; }
-        body .wrapper aside ul li img {
-          height: 10em;
-          margin-right: 1em;
-          border: solid 1px #0089ff; }
-        body .wrapper aside ul li p {
-          font-size: 1.25em; }
+body { font-family: 'Roboto', sans-serif; font-weight: 100; background: #e9f2fb; }
 
-@media screen and (max-width: 1199px) {
-  body .wrapper main.content-wrapper {
-    min-width: 70vw; } }
+body .wrapper { margin: 0 auto; padding: 1em; min-height: 90vh; max-width: 1200px; min-width: 90vw; display: flex; flex-direction: row; }
 
-@media screen and (max-width: 800px) {
-  body .wrapper {
-    flex-direction: column;
-    justify-content: space-between; }
-    body .wrapper main.content-wrapper {
-      max-width: 90vw;
-      margin-bottom: 1em; }
-    body .wrapper aside {
-      max-width: 90vw;
-      width: auto; } }
+body .wrapper main.content-wrapper { display: flex; min-width: 75vw; margin-right: 1em; background: white; border: solid 1px #c0deee; padding: 1em; }
+
+body .wrapper main.content-wrapper .info { margin-left: 1em; }
+
+body .wrapper main.content-wrapper .info h1 { padding-bottom: .5em; }
+
+body .wrapper aside { width: 19vw; background: white; border: solid 1px #c0deee; padding: 1em; }
+
+body .wrapper aside ul li { list-style-type: none; display: flex; flex-direction: row; }
+
+body .wrapper aside ul li img { height: 10em; margin-right: 1em; border: solid 1px #0089ff; }
+
+body .wrapper aside ul li p { font-size: 1.25em; }
+
+@media screen and (max-width: 1199px) { body .wrapper main.content-wrapper { min-width: 70vw; } }
+
+@media screen and (max-width: 800px) { body .wrapper { flex-direction: column; justify-content: space-between; }
+  body .wrapper main.content-wrapper { max-width: 90vw; margin-bottom: 1em; }
+  body .wrapper aside { max-width: 90vw; width: auto; } }
