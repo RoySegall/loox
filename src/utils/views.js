@@ -1,14 +1,17 @@
 import {getPets} from "./pets";
 
-const handlePetView = ({res, driver, excludePet = 1}) => {
-  const {current: {name: title, picture, info}, otherPets} = getPets({driver, excludePet});
+const handlePetView = async ({res, excludePet = 1}) => {
+  const results = await getPets({excludePet});
+  return{};
+  const {current: {name: title, picture, info}, otherPets} = getPets({excludePet});
+
   res.render('index', { title, info, picture, otherPets })
 };
 
-export const getAllPets = (req, res) => {
-  return handlePetView({res, driver: 'files'});
+export const getAllPets = async (req, res) => {
+  return handlePetView({res});
 }
 
-export const getPet = (req, res) => {
-  return handlePetView({res, driver: 'files', excludePet: req.params.id});
+export const getPet = async (req, res) => {
+  return handlePetView({res, excludePet: req.params.id});
 }

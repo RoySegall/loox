@@ -1,7 +1,11 @@
 import {resolve} from 'path';
 import {readFileSync} from 'fs';
-const MarkdownIt = require('markdown-it'),
-  md = new MarkdownIt();
+import {DRIVER} from './config';
+import MarkdownIt from 'markdown-it';
+import {getItems} from "./db";
+import {isEmpty} from 'lodash';
+const md = new MarkdownIt();
+
 
 export function getPetsFromFile(excludePetId = 1) {
   const petsNames = ['bowtruckle', 'hippogriff', 'niffler', 'puffskein', 'thestral', 'unicorn'];
@@ -9,7 +13,7 @@ export function getPetsFromFile(excludePetId = 1) {
 
   petsNames.forEach((name, index) => {
     const pet = require(resolve('src', 'data', `${name}.json`));
-    const petMarkdownInfo = readFileSync(resolve('src', 'data', pet.fileInfo), 'utf8')
+    const petMarkdownInfo = readFileSync(resolve('src', 'data', pet.fileInfo), 'utf8');
     pet.info = md.render(petMarkdownInfo);
     pets[index + 1] = pet;
   });
@@ -23,8 +27,30 @@ export function getPetsFromFile(excludePetId = 1) {
   return {current, otherPets};
 }
 
-export function getPets({req, driver, excludePet = 1}) {
-  if (driver === 'files') {
+async function getPetsFromDB(excludePet = null) {
+  try {
+    const items = await getItems();
+
+    if (isEmpty(items)) {
+      throw new Error('You need to seed the DB');
+    }
+
+    console.log(items);
+  } catch (e) {
+    console.error(e)
+  }
+
+  return {};
+}
+
+export async function getPets(excludePet = 1) {
+  console.log(DRIVER);
+
+  if (DRIVER === 'files') {
     return getPetsFromFile(excludePet);
+  }
+
+  if (DRIVER === 'db') {
+    return await getPetsFromDB(excludePet);
   }
 }
