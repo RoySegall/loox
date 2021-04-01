@@ -26,13 +26,16 @@ body {
       margin-right: 1em;
       background: white;
       border: solid 1px var(--border);
-      padding: 1em; }
+      padding: 1em;
+      position: relative; }
       body .wrapper main.content-wrapper .hidden-info {
         overflow-y: hidden;
-        height: 17em; }
+        height: 15em; }
       body .wrapper main.content-wrapper .info {
         margin-left: 1em;
         font-size: 1.25em; }
+        body .wrapper main.content-wrapper .info.gray-gradient {
+          background: linear-gradient(180deg, white 50%, rgba(71, 70, 70, 0.251138) 100%); }
         body .wrapper main.content-wrapper .info h1 {
           padding-bottom: .5em; }
         body .wrapper main.content-wrapper .info h2 {
@@ -41,6 +44,19 @@ body {
       body .wrapper main.content-wrapper img {
         max-width: 15em;
         border: solid 1px var(--img-border); }
+      body .wrapper main.content-wrapper .hidden {
+        display: none;
+        visibility: hidden; }
+      body .wrapper main.content-wrapper .show-more-button {
+        position: absolute;
+        bottom: 1em;
+        left: 40vw;
+        color: white;
+        border: solid 1px #0b77f4;
+        background: #0464d2;
+        padding: 1em;
+        border-radius: 5em;
+        cursor: pointer; }
     body .wrapper aside {
       width: 19vw;
       background: white;

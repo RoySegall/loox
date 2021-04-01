@@ -6,6 +6,9 @@ html
       type="text/css"
       href="/index.css"
     )
+    script(
+      src="/read_more.js"
+    )
     link(
       rel="preconnect"
       href="https://fonts.gstatic.com"
@@ -22,6 +25,7 @@ html
         div(class="info")
           h1=title
           p!=info
+        a(class="show-more-button hidden") Show more!
       aside
         ul
           each value, index in otherPets
