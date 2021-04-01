@@ -3,14 +3,23 @@
   padding: 0;
 }
 
+:root {
+  --background: #e9f2fb;
+  --border: #c0deee;
+  --img-border: #0089ff;
+  --a-color: black;
+  --text-color: black;
+}
+
 body {
+
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  background: #e9f2fb;
+  background: var(--background);
+  color: var(--text-color);
 
   .wrapper {
     padding: 1em;
-    min-height: 90vh;
     max-width: 1200px;
     min-width: 90vw;
     display: flex;
@@ -21,7 +30,7 @@ body {
       min-width: 75vw;
       margin-right: 1em;
       background: white;
-      border: solid 1px #c0deee;
+      border: solid 1px var(--border);
       padding: 1em;
 
       .info {
@@ -31,13 +40,19 @@ body {
           padding-bottom: .5em;
         }
       }
+
+      img {
+        max-width: 15em;
+        border: solid 1px var(--img-border);
+      }
     }
 
     aside {
       width: 19vw;
       background: white;
-      border: solid 1px #c0deee;
+      border: solid 1px var(--border);
       padding: 1em;
+      height: fit-content;
 
       ul {
         li {
@@ -48,12 +63,18 @@ body {
           img {
             width: 3vw;
             margin-right: 1em;
-            border: solid 1px #0089ff;
+            border: solid 1px var(--img-border);
             margin-bottom: 1em;
           }
 
           p {
             font-size: 1em;
+
+            a {
+              color: var(--a-color);
+              text-decoration: var(--a-color);
+              font-weight: 400;
+            }
           }
         }
       }
@@ -62,8 +83,12 @@ body {
 }
 
 @media screen and (max-width: 1199px) {
-  body  .wrapper  main.content-wrapper {
+  body .wrapper  main.content-wrapper {
     min-width: 70vw;
+
+    img {
+      max-width: 14em;
+    }
   }
 }
 
@@ -77,6 +102,7 @@ body {
       main.content-wrapper {
         max-width: 90vw;
         margin-bottom: 1em;
+        margin-right: 0;
       }
 
       aside {
@@ -85,5 +111,4 @@ body {
       }
     }
   }
-
 }
