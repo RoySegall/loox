@@ -7,7 +7,7 @@
     "dev": "nodemon --exec babel-node ./src/index.js",
     "sass:watch": "node-sass -w ./src/styles/index.scss -o ./src/public",
     "sass:build": "node-sass --output-style=compact ./src/styles/index.scss -o ./src/public",
-    "db:seed": "echo 'seed'"
+    "db:seed": "babel-node src/utils/seedDB.js"
   },
   "author": "RoySegall <roy@segall.io>",
   "license": "ISC",

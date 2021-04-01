@@ -1,10 +1,7 @@
 import {getPets} from "./pets";
 
-const handlePetView = async ({res, excludePet = 1}) => {
-  const results = await getPets({excludePet});
-  return{};
-  const {current: {name: title, picture, info}, otherPets} = getPets({excludePet});
-
+const handlePetView = async ({res, excludePet = null}) => {
+  const {current: {name: title, picture, info}, otherPets} = await getPets(excludePet);
   res.render('index', { title, info, picture, otherPets })
 };
 

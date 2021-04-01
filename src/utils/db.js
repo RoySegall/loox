@@ -12,33 +12,6 @@ export async function getCollection() {
   let collection = db.collection('pets');
 
   return collection;
-
-  let query = { name: 'Volkswagen' }
-
-  let res = await collection.findOne(query);
-  //
-  // let res2 = await collection.insertOne(query);
-  //
-  // console.log(res);
-
-  return {}
-
-  // await client.connect();
-  // await client.db().command({ ping: 1 });
-  //
-  // const db = client.db(MONGODB_COLLECTION);
-  //
-  // let collection = db.collection('pets');
-  //
-  // return collection;
-  //
-  // let collection = db.collection('cars');
-  //
-  // let query = { name: 'Volkswagen' }
-  //
-  // let res = await collection.findOne(query);
-  //
-  // console.log(res);
 }
 
 /**

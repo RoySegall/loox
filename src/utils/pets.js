@@ -3,11 +3,15 @@ import {readFileSync} from 'fs';
 import {DRIVER} from './config';
 import MarkdownIt from 'markdown-it';
 import {getItems} from "./db";
-import {isEmpty} from 'lodash';
+import {isEmpty, head} from 'lodash';
 const md = new MarkdownIt();
 
+export async function getPetsFromFile(excludePetId) {
 
-export function getPetsFromFile(excludePetId = 1) {
+  if (isEmpty(excludePetId)) {
+    excludePetId = 1;
+  }
+
   const petsNames = ['bowtruckle', 'hippogriff', 'niffler', 'puffskein', 'thestral', 'unicorn'];
   const pets = {};
 
@@ -27,27 +31,37 @@ export function getPetsFromFile(excludePetId = 1) {
   return {current, otherPets};
 }
 
-async function getPetsFromDB(excludePet = null) {
+async function getPetsFromDB(excludePetId) {
   try {
-    const items = await getItems();
+    const petsFromDB = await getItems();
 
-    if (isEmpty(items)) {
+    if (isEmpty(petsFromDB)) {
       throw new Error('You need to seed the DB');
     }
 
-    console.log(items);
+    const pets = {};
+    await petsFromDB.forEach(petFromDB => {
+      pets[petFromDB._id] = petFromDB;
+    });
+
+    if (isEmpty(excludePetId)) {
+      excludePetId = head(Object.keys(pets));
+    }
+
+    const current = pets[excludePetId];
+    delete pets[excludePetId];
+    const otherPets = pets;
+
+    return {current, otherPets};
   } catch (e) {
     console.error(e)
   }
-
   return {};
 }
 
-export async function getPets(excludePet = 1) {
-  console.log(DRIVER);
-
+export async function getPets(excludePet = null) {
   if (DRIVER === 'files') {
-    return getPetsFromFile(excludePet);
+    return await getPetsFromFile(excludePet);
   }
 
   if (DRIVER === 'db') {
