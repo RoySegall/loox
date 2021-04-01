@@ -27,9 +27,16 @@ body {
       background: white;
       border: solid 1px var(--border);
       padding: 1em; }
+      body .wrapper main.content-wrapper .hidden-info {
+        overflow-y: hidden;
+        height: 17em; }
       body .wrapper main.content-wrapper .info {
-        margin-left: 1em; }
+        margin-left: 1em;
+        font-size: 1.25em; }
         body .wrapper main.content-wrapper .info h1 {
+          padding-bottom: .5em; }
+        body .wrapper main.content-wrapper .info h2 {
+          padding-top: 1em;
           padding-bottom: .5em; }
       body .wrapper main.content-wrapper img {
         max-width: 15em;
@@ -49,12 +56,10 @@ body {
           margin-right: 1em;
           border: solid 1px var(--img-border);
           margin-bottom: 1em; }
-        body .wrapper aside ul li p {
-          font-size: 1em; }
-          body .wrapper aside ul li p a {
-            color: var(--a-color);
-            text-decoration: var(--a-color);
-            font-weight: 400; }
+        body .wrapper aside ul li p a {
+          color: var(--a-color);
+          text-decoration: var(--a-color);
+          font-weight: 400; }
 
 @media screen and (max-width: 1199px) {
   body .wrapper main.content-wrapper {
@@ -69,7 +74,11 @@ body {
     body .wrapper main.content-wrapper {
       max-width: 90vw;
       margin-bottom: 1em;
-      margin-right: 0; }
+      margin-right: 0;
+      flex-direction: column; }
+      body .wrapper main.content-wrapper .image {
+        text-align: center;
+        padding-bottom: 1em; }
     body .wrapper aside {
       max-width: 90vw;
       width: auto; } }

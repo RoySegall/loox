@@ -21,7 +21,7 @@ html
           img(src="/pictures/" + picture)
         div(class="info")
           h1=title
-          p=info
+          p!=info
       aside
         ul
           each value, index in otherPets
