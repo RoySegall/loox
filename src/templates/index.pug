@@ -4,7 +4,7 @@ html
     link(
       rel="stylesheet"
       type="text/css"
-      href="index.css"
+      href="/index.css"
     )
     link(
       rel="preconnect"
@@ -18,12 +18,14 @@ html
     div(class="wrapper")
       main(class="content-wrapper")
         div(class="image")
-          img(src="http://placekitten.com/200/300")
+          img(src="/pictures/" + picture)
         div(class="info")
-          h1 title
-          p Text about cat
+          h1=title
+          p=info
       aside
         ul
-          li
-            img(src="https://placekitten.com/g/200/300")
-            p title
+          each value, index in otherPets
+            li
+              img(src="/pictures/" + value.picture)
+              p
+                a(href="/pet/" + index)=value.name

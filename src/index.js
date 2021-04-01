@@ -1,26 +1,20 @@
-import {getPets, getPetsFromFile} from "./utils/pets";
-
 const express = require('express');
 import {resolve, join} from 'path';
+import {getAllPets, getPet} from "./utils/views";
 const app = express();
 const port = 3000;
 
+// Set up the engine template.
 app.set('view engine', 'pug');
 app.set('views', resolve('src', 'templates'));
 
+// Set up the static library.
 app.use(express.static(join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  const pets = getPets({driver: 'files'});
-  res.render('index', { title: 'Hessy', message: 'Hello there!' })
-})
-
-app.get('/pet/:id', (req, res) => {
-  const pets = getPets({driver: 'files', excludePet: req.params.id});
-
-  // Get all the pets and exclude on on the left.
-});
+// Views. Like, duh 💪!
+app.get('/', getAllPets)
+app.get('/pet/:id', getPet);
 
 app.listen(port, () => {
-  console.log(`Running the server at port ${port}`)
+  console.log(`Running the server at port ${port} 🚀`)
 });
