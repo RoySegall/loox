@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb';
 import {MONGODB_NAME, MONGODB_URL} from "./config";
 
 /**
+ * Get the collection object for a given collection.
  *
  * @returns {Promise<Collection>}
  */
@@ -15,8 +16,10 @@ export async function getCollection() {
 }
 
 /**
+ * Insert an item into the collcetion.
  *
- * @param item
+ * @param {object} item - The collection to insert.
+ *
  * @returns {Promise<*>}
  */
 export async function insertItem(item) {
@@ -25,14 +28,17 @@ export async function insertItem(item) {
 }
 
 /**
+ * Get all the items from the collection.
  *
  * @returns {Promise<[]>}
  */
 export async function getItems() {
   const collection = await getCollection();
   const items = [];
+
   await collection.find({}).forEach((item) => {
     items.push(item);
   });
+
   return items;
 }

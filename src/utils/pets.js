@@ -6,6 +6,13 @@ import {getItems} from "./db";
 import {isEmpty, head} from 'lodash';
 const md = new MarkdownIt();
 
+/**
+ * Get all the pets from the files.
+ *
+ * @param excludePetId - The pet ID to exclude from the other pets and consider as the current pet.
+ *
+ * @returns {Promise<{current, otherPets: {}}>}
+ */
 export async function getPetsFromFile(excludePetId) {
 
   if (isEmpty(excludePetId)) {
@@ -31,6 +38,13 @@ export async function getPetsFromFile(excludePetId) {
   return {current, otherPets};
 }
 
+/**
+ * Get the pets from the DB.
+ *
+ * @param excludePetId - The pet ID to exclude from the other pets and consider as the current pet.
+ *
+ * @returns {Promise<{current, otherPets: {}}|{}>}
+ */
 async function getPetsFromDB(excludePetId) {
   try {
     const petsFromDB = await getItems();
@@ -59,6 +73,13 @@ async function getPetsFromDB(excludePetId) {
   return {};
 }
 
+/**
+ * Get the pets by the driver - files or DB.
+ *
+ * @param excludePet - The pet ID to exclude from the other pets and consider as the current pet.
+ *
+ * @returns {Promise<{current, otherPets: {}}|{}>}
+ */
 export async function getPets(excludePet = null) {
   if (DRIVER === 'files') {
     return await getPetsFromFile(excludePet);

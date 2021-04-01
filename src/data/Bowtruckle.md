@@ -17,18 +17,18 @@ one would have to offer it wood lice or fairy eggs as a distraction.
 ## History
 Hogwarts School of Witchcraft and Wizardry had a Bowtruckle Island at the Great Lake. Newton Scamander used to go to it 
 when he attended Hogwarts, and gained the trust of the Bowtruckles. In between February and June 1913, he took Leta 
-Lestrange in an effort to cheer her up.[7]
+Lestrange in an effort to cheer her up.
 
-Newt Scamander kept a branch of Bowtruckles in his suitcase by December 1926.[8]
+Newt Scamander kept a branch of Bowtruckles in his suitcase by December 1926.
 
 During the 1987–1988 school year, Bowtruckles were studied by fourth year Care of Magical Creatures students at Hogwarts 
 School of Witchcraft and Wizardry, taught by Professor Silvanus Kettleburn, who described them to be slipperier than 
-Frog Spawn Soap.[9] One of Kettleburn's personal Bowtruckles was named by Jacob's sibling, and was named either Jacob, 
-Barnaby Junior or Newt, after a person of the same name.[10]
+Frog Spawn Soap. One of Kettleburn's personal Bowtruckles was named by Jacob's sibling, and was named either Jacob, 
+Barnaby Junior or Newt, after a person of the same name.
 
 Bowtruckles were studied by fifth year Care of Magical Creatures students at Hogwarts during 1995–1996 school year, 
-taught by substitute Professor Wilhelmina Grubbly-Plank.[3]
+taught by substitute Professor Wilhelmina Grubbly-Plank.
 
 In the 21st century, a branch of bowtruckles was unleashed as a Confoundable by the Calamity and had to be dealt with by 
-the Statute of Secrecy Task Force and returned to the Black Forest in Germany.[11]
+the Statute of Secrecy Task Force and returned to the Black Forest in Germany.
 
