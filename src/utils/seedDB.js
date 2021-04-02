@@ -23,4 +23,7 @@ const insertPetToDb = async (pet) => {
   console.log('Starting to seed the DB 😺'.green.bold);
   await Promise.all(Object.keys(pets).map((id) => insertPetToDb(pets[id])));
   console.log('DB seeded 🍕🚀🕺'.green.bold);
+
+  // Terminating the process, free the terminal 🤟!
+  process.exit(0);
 })();
