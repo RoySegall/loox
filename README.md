@@ -22,6 +22,21 @@ All you need to do is:
 npm dev
 ```
 
+## Adding more pets
+In `src/data` add a json file which goes by the next format:
+
+```json
+{
+  "name": "Name of the pet",
+  "picture": "image_name.png",
+  "fileInfo": "markdown_file_name.md"
+}
+```
+
+* name - This is the name of the pet.
+* picture - A filename of the pet's picture. All the pet's images located under `public/images`
+* fileInfo - This is a file in a markdown format and need to be located under `src/data`
+
 ## todo
 There are alot of stuff I wanted to do:
 * Unit test with Jest

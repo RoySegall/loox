@@ -32,11 +32,11 @@ export async function insertItem(item) {
  *
  * @returns {Promise<[]>}
  */
-export async function getItems() {
+export async function getItems(query = {}) {
   const collection = await getCollection();
   const items = [];
 
-  await collection.find({}).forEach((item) => {
+  await collection.find(query).forEach((item) => {
     items.push(item);
   });
 

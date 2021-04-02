@@ -1,5 +1,5 @@
 import {resolve} from 'path';
-import {readFileSync} from 'fs';
+import {readFileSync, readdirSync} from 'fs';
 import {DRIVER} from './config';
 import MarkdownIt from 'markdown-it';
 import {getItems} from "./db";
@@ -13,24 +13,32 @@ const md = new MarkdownIt();
  *
  * @returns {Promise<{current, otherPets: {}}>}
  */
-export async function getPetsFromFile(excludePetId) {
-
-  if (isEmpty(excludePetId)) {
-    excludePetId = 1;
-  }
-
-  const petsNames = ['bowtruckle', 'hippogriff', 'niffler', 'puffskein', 'thestral', 'unicorn'];
+export async function getPetsFromFile(excludePetId, returnFlat = false) {
   const pets = {};
+  const petDataFolder = resolve('src', 'data');
 
-  petsNames.forEach((name, index) => {
-    const pet = require(resolve('src', 'data', `${name}.json`));
-    const petMarkdownInfo = readFileSync(resolve('src', 'data', pet.fileInfo), 'utf8');
+  await readdirSync(petDataFolder).forEach((fileName, index) => {
+    if (!fileName.includes('.json')) {
+      // This is not a metadata file of a pet.
+      return;
+    }
+
+    const pet = require(resolve(petDataFolder, fileName));
+    const petMarkdownInfo = readFileSync(resolve(petDataFolder, pet.fileInfo), 'utf8');
     pet.info = md.render(petMarkdownInfo);
     pets[index + 1] = pet;
   });
 
+  if (returnFlat) {
+    return pets;
+  }
+
   // Take the pet by the ID we want to exclude, set it as the current and remove it from all the pets. Then, take the
   // remains pets and treat them as other pets i.e. the pets on the side.
+  if (isEmpty(excludePetId)) {
+    excludePetId = head(Object.keys(pets));
+  }
+
   const current = pets[excludePetId];
   delete pets[excludePetId];
   const otherPets = pets;

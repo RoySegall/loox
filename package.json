@@ -12,6 +12,7 @@
   "author": "RoySegall <roy@segall.io>",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^26.6.3",
